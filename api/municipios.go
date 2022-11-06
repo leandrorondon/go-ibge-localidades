@@ -18,7 +18,7 @@ type Municipios struct {
 // Municipios List all the Municípios.
 // Returns a list of Municipios.
 // GET https://servicodados.ibge.gov.br/api/v1/localidades/municipios
-func (d *Municipios) Municipios(ctx context.Context) (*MunicipiosResponse, error) {
+func (d *Municipios) Municipios(ctx context.Context) (MunicipiosResponse, error) {
 	if d.client == nil {
 		return nil, ErrHTTPClientNotSet
 	}
@@ -36,5 +36,5 @@ func (d *Municipios) Municipios(ctx context.Context) (*MunicipiosResponse, error
 		return nil, err
 	}
 
-	return &r, nil
+	return r, nil
 }

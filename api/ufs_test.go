@@ -14,7 +14,7 @@ func TestUFs(t *testing.T) {
 		name             string
 		httpClient       httpClient
 		expectedError    string
-		expectedResponse *api.UFsResponse
+		expectedResponse api.UFsResponse
 	}{
 		{
 			name:          "invalid http client",
@@ -39,7 +39,7 @@ func TestUFs(t *testing.T) {
 			httpClient: &httpClientMock{
 				GetResponse: []byte(`[{"id":1,"sigla":"AA","nome":"Estado A","regiao":{"id":1,"sigla":"A","nome":"Região A"}},{"id":2,"sigla":"BB","nome":"Estado B","regiao":{"id":2,"sigla":"B","nome":"Região B"}}]`),
 			},
-			expectedResponse: &api.UFsResponse{
+			expectedResponse: api.UFsResponse{
 				{ID: 1, Nome: "Estado A", Sigla: "AA", Regiao: api.Regiao{ID: 1, Nome: "Região A", Sigla: "A"}},
 				{ID: 2, Nome: "Estado B", Sigla: "BB", Regiao: api.Regiao{ID: 2, Nome: "Região B", Sigla: "B"}},
 			},

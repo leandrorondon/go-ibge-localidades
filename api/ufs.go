@@ -18,7 +18,7 @@ type UFs struct {
 // UFs List all the UFs.
 // Returns a list of UFs.
 // GET https://servicodados.ibge.gov.br/api/v1/localidades/estados
-func (ufs *UFs) UFs(ctx context.Context) (*UFsResponse, error) {
+func (ufs *UFs) UFs(ctx context.Context) (UFsResponse, error) {
 	if ufs.client == nil {
 		return nil, ErrHTTPClientNotSet
 	}
@@ -36,5 +36,5 @@ func (ufs *UFs) UFs(ctx context.Context) (*UFsResponse, error) {
 		return nil, err
 	}
 
-	return &r, nil
+	return r, nil
 }

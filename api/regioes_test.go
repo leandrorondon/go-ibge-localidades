@@ -14,7 +14,7 @@ func TestRegioes(t *testing.T) {
 		name             string
 		httpClient       httpClient
 		expectedError    string
-		expectedResponse *api.RegioesResponse
+		expectedResponse api.RegioesResponse
 	}{
 		{
 			name:          "invalid http client",
@@ -39,7 +39,7 @@ func TestRegioes(t *testing.T) {
 			httpClient: &httpClientMock{
 				GetResponse: []byte(`[{"id":5,"sigla":"CO","nome":"Centro-Oeste"}]`),
 			},
-			expectedResponse: &api.RegioesResponse{
+			expectedResponse: api.RegioesResponse{
 				{
 					ID:    5,
 					Sigla: "CO",

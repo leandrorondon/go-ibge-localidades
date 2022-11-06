@@ -14,7 +14,7 @@ func TestDistritos(t *testing.T) {
 		name             string
 		httpClient       httpClient
 		expectedError    string
-		expectedResponse *api.DistritosResponse
+		expectedResponse api.DistritosResponse
 	}{
 		{
 			name:          "invalid http client",
@@ -39,7 +39,7 @@ func TestDistritos(t *testing.T) {
 			httpClient: &httpClientMock{
 				GetResponse: []byte(`[{"id":530010805,"nome":"Brasília","municipio":{"id":5300108,"nome":"Brasília","microrregiao":{"id":53001,"nome":"Brasília","mesorregiao":{"id":5301,"nome":"Distrito Federal","UF":{"id":53,"sigla":"DF","nome":"Distrito Federal","regiao":{"id":5,"sigla":"CO","nome":"Centro-Oeste"}}}},"regiao-imediata":{"id":530001,"nome":"Distrito Federal","regiao-intermediaria":{"id":5301,"nome":"Distrito Federal","UF":{"id":53,"sigla":"DF","nome":"Distrito Federal","regiao":{"id":5,"sigla":"CO","nome":"Centro-Oeste"}}}}}}]`),
 			},
-			expectedResponse: &api.DistritosResponse{
+			expectedResponse: api.DistritosResponse{
 				{
 					ID:   530010805,
 					Nome: "Brasília",

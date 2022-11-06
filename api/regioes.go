@@ -18,7 +18,7 @@ type Regioes struct {
 // Regioes List all the Municípios.
 // Returns a list of Regioes.
 // GET https://servicodados.ibge.gov.br/api/v1/localidades/regioes
-func (d *Regioes) Regioes(ctx context.Context) (*RegioesResponse, error) {
+func (d *Regioes) Regioes(ctx context.Context) (RegioesResponse, error) {
 	if d.client == nil {
 		return nil, ErrHTTPClientNotSet
 	}
@@ -36,5 +36,5 @@ func (d *Regioes) Regioes(ctx context.Context) (*RegioesResponse, error) {
 		return nil, err
 	}
 
-	return &r, nil
+	return r, nil
 }

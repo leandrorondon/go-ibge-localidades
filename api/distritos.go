@@ -18,7 +18,7 @@ type Distritos struct {
 // Distritos List all the Distritos.
 // Returns a list of Distritos.
 // GET https://servicodados.ibge.gov.br/api/v1/localidades/distritos
-func (d *Distritos) Distritos(ctx context.Context) (*DistritosResponse, error) {
+func (d *Distritos) Distritos(ctx context.Context) (DistritosResponse, error) {
 	if d.client == nil {
 		return nil, ErrHTTPClientNotSet
 	}
@@ -36,5 +36,5 @@ func (d *Distritos) Distritos(ctx context.Context) (*DistritosResponse, error) {
 		return nil, err
 	}
 
-	return &r, nil
+	return r, nil
 }
