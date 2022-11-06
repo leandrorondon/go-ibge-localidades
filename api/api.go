@@ -19,6 +19,7 @@ type API struct {
 	UFs        UFs
 	Distritos  Distritos
 	Municipios Municipios
+	Regioes    Regioes
 }
 
 type httpClient interface {
@@ -31,5 +32,6 @@ func New(client httpClient) *API {
 		UFs:        UFs{client: client},
 		Distritos:  Distritos{client: client},
 		Municipios: Municipios{client: client},
+		Regioes:    Regioes{client: client},
 	}
 }

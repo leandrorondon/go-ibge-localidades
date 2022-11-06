@@ -36,7 +36,7 @@ Cliente Go para a API de Localidades do IBGE v1.0.0: https://servicodados.ibge.g
   - [ ] Países
   - [ ] País por identificador
 - [ ] REGIÕES
-  - [ ] Regiões
+  - [x] Regiões
   - [ ] Região por identificador
 - [ ] REGIÕES IMEDIATAS
   - [ ] Regiões imediatas por UF
