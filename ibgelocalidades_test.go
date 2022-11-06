@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/leandrorondon/go-ibge-localidades"
+	ibgelocalidades "github.com/leandrorondon/go-ibge-localidades"
 	"github.com/stretchr/testify/assert"
 )
 

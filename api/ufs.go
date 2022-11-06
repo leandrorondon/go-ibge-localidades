@@ -20,7 +20,7 @@ type UFs struct {
 // GET https://servicodados.ibge.gov.br/api/v1/localidades/estados
 func (ufs *UFs) UFs(ctx context.Context) (*UFsResponse, error) {
 	if ufs.client == nil {
-		return nil, ErrHttpClientNotSet
+		return nil, ErrHTTPClientNotSet
 	}
 
 	url := fmt.Sprintf("%s/estados", baseURL)

@@ -1,5 +1,7 @@
+.PHONY: test
 test:
-	@go test -race $(go list ./... | grep -v /examples/)
+	@go test -race ./...
 
+.PHONY: lint
 lint:
 	@golangci-lint run

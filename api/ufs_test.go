@@ -3,40 +3,11 @@ package api_test
 import (
 	"context"
 	"errors"
-	"fmt"
-	"reflect"
 	"testing"
 
 	"github.com/leandrorondon/go-ibge-localidades/api"
 	"github.com/stretchr/testify/assert"
 )
-
-type httpClient interface {
-	Get(ctx context.Context, url string) ([]byte, error)
-	Post(ctx context.Context, url string, body any) ([]byte, error)
-}
-
-type httpClientMock struct {
-	GetResponse []byte
-	GetError    error
-	SpyGetURL   string
-
-	PostResponse []byte
-	PostError    error
-	SpyPostURL   string
-	SpyPostBody  any
-}
-
-func (m *httpClientMock) Get(_ context.Context, url string) ([]byte, error) {
-	m.SpyGetURL = url
-	return m.GetResponse, m.GetError
-}
-
-func (m *httpClientMock) Post(_ context.Context, url string, body any) ([]byte, error) {
-	m.SpyPostURL = url
-	m.SpyPostBody = body
-	return nil, nil
-}
 
 func TestUFs(t *testing.T) {
 	tests := []struct {
@@ -47,7 +18,7 @@ func TestUFs(t *testing.T) {
 	}{
 		{
 			name:          "invalid http client",
-			expectedError: api.ErrHttpClientNotSet.Error(),
+			expectedError: api.ErrHTTPClientNotSet.Error(),
 		},
 		{
 			name: "get error",
@@ -79,7 +50,6 @@ func TestUFs(t *testing.T) {
 		t.Run(test.name, func(t *testing.T) {
 			apiClient := api.New(test.httpClient)
 			r, err := apiClient.UFs.UFs(context.Background())
-			fmt.Println(err, reflect.TypeOf(err))
 			if test.expectedError != "" {
 				assert.ErrorContains(t, err, test.expectedError)
 			} else {

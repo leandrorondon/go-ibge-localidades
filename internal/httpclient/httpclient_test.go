@@ -12,22 +12,6 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-type roundTripper struct {
-	request *http.Request
-	called  bool
-	fn      func()
-
-	response *http.Response
-	err      error
-}
-
-// RoundTrip RoundTripper implementation to be used in tests.
-func (rt *roundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
-	rt.request = req
-	rt.called = true
-	return rt.response, rt.err
-}
-
 func TestNew(t *testing.T) {
 	to := time.Second
 	tests := []struct {
@@ -40,7 +24,7 @@ func TestNew(t *testing.T) {
 		},
 		{
 			name:      "with transport",
-			roundTrip: &roundTripper{},
+			roundTrip: &http.Transport{},
 		},
 		{
 			name:    "with timeout",
@@ -49,7 +33,7 @@ func TestNew(t *testing.T) {
 		{
 			name:      "with timeout and transport",
 			timeout:   &to,
-			roundTrip: &roundTripper{},
+			roundTrip: &http.Transport{},
 		},
 	}
 

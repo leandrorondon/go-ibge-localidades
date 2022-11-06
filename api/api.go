@@ -10,13 +10,14 @@ const (
 )
 
 var (
-	// ErrHttpClientNotSet is returned when a method is called and the http client is not configured.
-	ErrHttpClientNotSet = errors.New("http client not set")
+	// ErrHTTPClientNotSet is returned when a method is called and the http client is not configured.
+	ErrHTTPClientNotSet = errors.New("http client not set")
 )
 
 // API is the IBGE Localidades API object.
 type API struct {
-	UFs UFs
+	UFs       UFs
+	Distritos Distritos
 }
 
 type httpClient interface {
@@ -26,8 +27,7 @@ type httpClient interface {
 
 func New(client httpClient) *API {
 	return &API{
-		UFs: UFs{
-			client: client,
-		},
+		UFs:       UFs{client: client},
+		Distritos: Distritos{client: client},
 	}
 }
