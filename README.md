@@ -4,7 +4,7 @@ Cliente Go para a API de Localidades do IBGE v1.0.0: https://servicodados.ibge.g
 ## Endpoints
 
 - [ ] DISTRITOS
-  - [ ] Distritos
+  - [x] Distritos
   - [ ] Distritos por identificador
   - [ ] Distritos por UF
   - [ ] Distritos por mesoregião
@@ -27,7 +27,7 @@ Cliente Go para a API de Localidades do IBGE v1.0.0: https://servicodados.ibge.g
   - [ ] Municípios por UF
   - [ ] Municípios por mesorregião
   - [ ] Municípios por microrregião
-  - [ ] Municípios
+  - [x] Municípios
   - [ ] Municípios por identificador
   - [ ] Municípios por região imediata
   - [ ] Municípios por região intermediária
@@ -68,6 +68,6 @@ Cliente Go para a API de Localidades do IBGE v1.0.0: https://servicodados.ibge.g
   - [ ] Subdistritos
   - [ ] Subdistritos por identificador
 - [ ] UFS
-  - [ ] UFs
+  - [x] UFs
   - [ ] UF por identificador
   - [ ] UFs por região
